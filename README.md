@@ -8,10 +8,6 @@
     - Who this book is for
     - How to use this book
 
-GitHub Copilot is a powerful tool that can assist developers in making large scale code changes more efficiently. This book aims to provide practical guidance and based on real-world experience of how to leverage Copilot for such tasks.
-
-This book is 
-
 2. The Case for Large Scale Code Change
 
     - Why large scale changes are needed
