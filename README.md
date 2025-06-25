@@ -5,7 +5,8 @@ Goto [[./book/SUMMARY.md]] for the book.
 
 ## Todo
 
-- [ ] Section 1
+Drafts:
+- [x] Section 1
 - [ ] Section 2
 - [ ] Section 3
 - [ ] Section 4
