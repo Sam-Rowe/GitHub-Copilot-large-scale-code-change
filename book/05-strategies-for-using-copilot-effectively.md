@@ -16,11 +16,15 @@ What should the plan contain.
 
 5) Course correct as you go; Always be testing. The output you are generating be it converted code, additional test coverage, or to a more modern framework the output of the process should include lots of tests as well. This is the final anchor point for Copilot and the developer. 
 
-In the event you have Documentation, starting tests, end tests and converted code you can ask Copilot to consdier these together and ensure they are aligned.
+In the event you have Documentation, starting tests, end tests and converted code you can ask Copilot to consider these together and ensure they are aligned.
 
 ## Prompt engineering for large changes
 
 ## Chain of prompts
+
+With large changes it can be tempting to try to one shot the prompt, a practice of giving GitHub Copilot one prompt that produces the desired output in one go. It is tempting to think that by giving a clear enough prompt that it will work. However experience has shown that one shot prompting for large changes is not the right way to achieve large changes. It is better to chain prompts together one after another in a repeatable way to make the larger change possible. 
+
+Lets consider an example.
 
 ### Spreadsheet for chaining prompts
 
