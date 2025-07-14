@@ -24,8 +24,21 @@ This might look like:
 - "Implement these additional unit tests for the customer API"
 - "Refine the test cases to ensure they align to the company's coding standards and naming conventions as documented in /docs/Coding_Standards.md"
 
-Including GitHub Copilot instructions files in the codebase is the best way to ensure that the prompts can be smaller and more targeted. This can be achieved by including in the .github/instructions.md
+Including GitHub Copilot instructions files in the codebase is the best way to ensure that the prompts can be smaller and more targeted. This can be achieved by including in the [.github/instructions.md](https://code.visualstudio.com/docs/copilot/copilot-customization#_custom-instructions) file that GitHub Copilot includes to provide additional context to the LLM.
+
+That way creating or updating the architecture overview and creating the arhcitecture detail for each of the API sections can be done in separate prompts and then use the instrcutions files to point to them. This means that GitHub Copilot can use these documentation files to uderstand the codebase without having to be prompted in each chat to include it. Adding into the instructions file the location of the coding standards file also means that GitHub Copilot can use this to refine the test cases without having to be prompted in each chat. The same can be true for instrucitons on how to create tests and when to mock data access.
+
+Then the prompts can be simplifed to:
+- "Create a plan to increas the test coverage for the Customer API"
+- "Implement these additional unit tests for the customer API"
+
+Further simplification can be achieved by using ( experimental at the time of writing ) [prompt files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental) to simplify even further. The prompt file could include the glue to the instructions file and only expect the user to provide the piece of code that additional tests are being added to.
+
+Imagine the prompt file is created with the name '.github/prompts/improve-test-coverage.prompt.md'. This might look like this in use:
+- "/improve-test-coverage Considering only the Customer API code"
 
 ## Chunking strategies
+
+
 
 ## Documentation strategies
