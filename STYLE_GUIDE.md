@@ -17,7 +17,7 @@ Use: organisation, modernisation, behaviour, colour, optimise, analyse, empathis
 
 ## Terminology Consistency
 
-- GitHub Copilot (first use per chapter), thereafter: Copilot.
+- GitHub Copilot should always be GitHub Copilot.
 - Large-scale (hyphenated when adjectival: "large-scale change"; otherwise: "at large scale").
 - Codebase (one word).
 - AI-assisted development (hyphenated when before noun).
