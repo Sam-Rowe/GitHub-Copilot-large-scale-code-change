@@ -73,4 +73,3 @@ Track outcomes to ensure value and safety:
 - For legacy systems, create seams and apply the strangler pattern to reduce risk.
 - Maintain collaboration hygiene: small PRs, clear ownership, automated checks.
 - Validate outcomes with agreed metrics to sustain stakeholder confidence.
-

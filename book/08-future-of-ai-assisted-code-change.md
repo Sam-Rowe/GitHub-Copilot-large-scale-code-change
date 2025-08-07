@@ -64,5 +64,3 @@ Open questions:
 - Governance and safety controls must evolve alongside capability; documentation becomes a first-class asset.
 - Teams need skills in prompt design, testing, architecture, and operations to use AI effectively.
 - Measure outcomes and iterate—treat AI-assisted development as a capability to manage, not a trend to observe.
-
-

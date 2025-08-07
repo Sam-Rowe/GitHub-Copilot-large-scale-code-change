@@ -29,7 +29,7 @@ Large-scale change introduces complexity beyond typical feature work:
 
 These risks are manageable with the right structure: clear chunking, automated tests, standards, and disciplined review.
 
-## Transformation patterns and Copilot impact
+## Transformation patterns and GitHub Copilot impact
 
 Experience from real-world engagements indicates consistent patterns where GitHub Copilot accelerates change and improves consistency.
 
