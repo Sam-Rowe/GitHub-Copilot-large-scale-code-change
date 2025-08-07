@@ -1,20 +1,75 @@
-# Real-World (Style) Workflows
+# Real-World Workflows
 
-Real world this is changing so fast. What has worked for customers and myself depends on the features I have available to hand. For example building out a list of prompts has worked well for me in the past but with Agent mode it is becoming less relevant to have a list of structured prompts to run one after another than to work on patterns of prompts that can be used in an Agent mode conversation. I suspect in the near future I will have to update this further to account for new ways of working in a fully Agentic way.
+Practical workflows evolve as tools mature, but several durable patterns consistently help teams deliver large-scale change safely. This chapter presents an end-to-end example, generalises the approach to multiple contexts, and highlights techniques for legacy codebases.
 
-## End-to-end walkthroughs
+## End-to-end walkthrough: language and platform migration (open source)
 
-Take a repo like https://github.com/Sam-Rowe/i-ching which I used these practices with to convert from a Node Library to a Swift library https://github.com/Sam-Rowe/IChing-Swift-Library
+An open-source example demonstrates a pragmatic path for migrating a small library from Node.js to Swift whilst preserving behaviour:
 
-The first step was to improve the tests that existed. I needed to be able to see when the swift version was deviating from the behaviour of the swift version. Increasing the test coverage and improving the reliability of those tests was important to give me a solid foundation for the change. In this case i offered back a PR to the original author so that the work I was building upon was also updated. At the time of writing that hasn't been merged yet.
+- Source project: [i-ching (Node.js)](https://github.com/Sam-Rowe/i-ching)
+- Target project: [IChing-Swift-Library (Swift)](https://github.com/Sam-Rowe/IChing-Swift-Library)
 
-Step 2 was to start the new Swift library the initial framework was setup in the IDE as you would normally then i started to work on the code changes. This is where giving AI a chunk of Node code and asking for the essential algorithm's from it, looking for like libraries to use in Swift and building out a plan to convert it to Swift was essential. That plan was then used to start working on the tests in Swift before I could work on implementing the library. 
+Step-by-step approach:
 
-There was plenty of iterations as i added more tests and more code with GitHub Copliot's help to fill out the swift library to a working state where the tests pass and I had a working CLI tool to use it the same I do for the Node JS version.
+1. Strengthen tests in the source repository to capture intended behaviour for core algorithms and edge cases; contribute improvements upstream where appropriate via pull request.
+2. Scaffold the target project using standard tooling for the destination language/platform (for example, Swift Package Manager).
+3. Extract and document core algorithms and data structures from the source; identify library equivalents in the target ecosystem.
+4. Plan the migration in small chunks (for example, by feature or module). Capture the plan in `plan.md` to coordinate agentic and manual steps.
+5. Generate tests first in the target language to lock in behaviour; prioritise high-value and high-risk paths.
+6. Implement incrementally using Copilot suggestions, reviewing each change for correctness, performance, and idiomatic style.
+7. Cross-verify behaviour using a small CLI or script that exercises both implementations with identical inputs.
+8. Update documentation and prompt files as patterns stabilise; record lessons learned to improve subsequent chunks.
+
+## Patterns that generalise across contexts
+
+- Solo developers and small teams: Keep scope tight, automate tests early, and rely on prompt files to reduce repetition.
+- Open-source maintainers: Maintain clear contribution guidelines, small PRs, and deterministic test suites to support drive-by contributions using Copilot.
+- Enterprise teams: Use instruction files, CODEOWNERS, branch policies, and staging environments; measure outcomes and publish dashboards for stakeholders.
+
+Across all contexts, design for reviewability: small changes, clear intent, and fast feedback.
 
 ## Handling legacy codebases
 
-With large legacy codebases the important part is to break down the code into small enough chunks that can be worked upon within the context of the model.
+Legacy systems benefit from systematic discovery and incremental change:
 
-This usually requires a domain expert who has previous experience of the codebase or of the domain the code is functioning in so that they can prise the code up into smaller chunks that can be worked on independently.
+1. Discovery: Generate lightweight architecture notes (context, containers, key flows) and dependency graphs.
+2. Golden tests: Add characterisation tests around critical paths to preserve behaviour during refactors.
+3. Seams: Identify boundaries (adapters, gateways) to isolate changes; introduce interfaces where missing.
+4. Strangler pattern: Route a small, stable slice through a modernised component while the legacy remains intact.
+5. Data safety: Rehearse migrations with anonymised samples; add verification queries and back-out plans.
+6. Operational readiness: Extend logging, metrics, and tracing before deep changes to aid diagnosis.
 
+Copilot supports these steps by accelerating scaffolds, tests, and repetitive refactors, but human judgement sets boundaries and validates outcomes.
+
+## Collaboration practices
+
+- Keep changes small and thematic; prefer PRs that map to a single chunk.
+- Define review service-level expectations (SLE) and use CODEOWNERS to route changes.
+- Use consistent commit messages and checklists; automate linting and tests in CI.
+- Document decisions (lightweight ADRs) when behaviour or architecture changes.
+
+## Agent-mode considerations
+
+When using agentic workflows:
+
+- Keep a human-in-the-loop; require green tests and a review before merge.
+- Cap changeset size and runtime per cycle; prefer multiple short cycles over one long run.
+- Provide the agent with instruction files, test commands, and explicit in-scope paths.
+- Enable rapid rollback (feature flags or revert-friendly commits).
+
+## Validation and metrics
+
+Track outcomes to ensure value and safety:
+
+- Throughput: cycle time, lead time, PR size
+- Quality: change failure rate, defect escape rate, flaky test rate
+- Coverage and safety: coverage ratio on critical paths, mutation score (where applicable)
+- Operations: mean time to recovery (MTTR), incident volume linked to transformed areas
+
+## Key Takeaways
+
+- Anchor behaviour with tests, then migrate in small, reviewable chunks.
+- Use instruction and prompt files to make agentic and manual steps repeatable.
+- For legacy systems, create seams and apply the strangler pattern to reduce risk.
+- Maintain collaboration hygiene: small PRs, clear ownership, automated checks.
+- Validate outcomes with agreed metrics to sustain stakeholder confidence.

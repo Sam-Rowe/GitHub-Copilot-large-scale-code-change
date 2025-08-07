@@ -1,3 +1,3 @@
 #!/bin/sh
-# Run markdownlint on all markdown files in the repo
-npx markdownlint '**/*.md'
+# Run markdownlint on all Markdown files in the book directory
+npx markdownlint-cli 'book/**/*.md'
