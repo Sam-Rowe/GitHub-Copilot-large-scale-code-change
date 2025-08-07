@@ -20,4 +20,4 @@ This is where automated testing is essential.
 
 ## Iterative testing and refinement
 
-## Tips from practitioners
+Wether you use Agile or waterfall with AI to help make large scale code change you need to ensure there are lots of small steps. I have found that small iterative steps to be easier to spot when the tooling is going off course and this requires faster feedback and cycle times to be able to test and apply those changes into production.
