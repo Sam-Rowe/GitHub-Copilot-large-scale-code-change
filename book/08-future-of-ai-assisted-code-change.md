@@ -2,20 +2,67 @@
 
 ## Trends and predictions
 
-AI is going to be embedded deeper into the software development lifecycle. As AI models become more sophisticated, they will not only assist in writing code but also in understanding complex systems, predicting potential issues, and suggesting architectural improvements. There will be a wider gamut of developers from non development background who Vibe code with AI doing the heavy lifting to Professional developers who will be able to wield AI to create more complex systems with less effort.
+AI will become increasingly embedded across the software development lifecycle. As models and tooling mature, assistance will extend beyond code suggestions to system understanding, impact analysis, and change planning. Teams will use AI to propose architectural improvements, anticipate integration risks, and automate more of the repetitive scaffolding work.
 
-I predict that AI coding agents will become more autonomous, capable of making decisions based on the context of the project and the preferences of the development team. However this will not replace human developers who will be essential to guide, review, refine and ensure the AI contributions are aligned with the business and customer needs.
+Expect broader participation in software creation. People from diverse, non-traditional development backgrounds will successfully contribute with AI support, while professional developers will use AI to design and deliver more complex systems with less incidental effort. Autonomy will increase in coding agents, but responsibility for intent, correctness, and value will remain human.
 
-The speed of development is increasing, and with AI tooling it will accelerate further. This will mean that the SDLC ( Software Development Life Cycle ) will need to adapt to integrate AI contributions and the speed of change. There are some unknowns here that will need to be worked out, such as attribution of AI vs human contributions possibly to the word level? How to maintain code quality when the changes are so rapid? How to manage merge conflicts when AI Agents are making changes in parallel with human developers across multiple overlapping features? to name a few.
+The pace of delivery will continue to accelerate. To keep quality high at speed, processes and environments must adapt—particularly testing, review, and release practices.
+
+## Implications for the SDLC
+
+- Planning: Agents propose change plans and surface dependencies; humans set scope, constraints, and acceptance criteria.
+- Design: AI helps explore options and trade-offs; teams document decisions (ADRs) and constraints for reuse by agents.
+- Implementation: Small, test-anchored increments remain the safest path; agents assist with scaffolding and pattern application.
+- Testing: Greater emphasis on fast, reliable tests (unit, integration, contract) and on mutation testing for critical paths.
+- Release: More frequent, smaller releases with strong observability and rapid rollback.
+- Operations: AI-assisted diagnostics suggest likely failure points and remediation steps based on telemetry patterns.
+
+## Governance, safety, and compliance
+
+- Attribution and traceability: Maintain clear authorship, review history, and rationale for changes.
+- Policy enforcement: Use organisation controls, dependency policies, and code scanning to guard against vulnerable or non-compliant output.
+- Data protection: Keep secrets and personal data out of prompts; enforce repository and environment hygiene.
+- Risk management: Require tests and reviews before merge; use feature flags and progressive delivery for risky changes.
+- Documentation currency: Treat documentation as part of the system; keep it current so agents can rely on it safely.
 
 ## Evolving best practices
 
-Getting AI to work well with large scale code changes requires more meticulous approach to working with AI and testing tools to ensure the changes do not effect the quality of the codebase or changes the business logic in unexpected ways.
+- Design for small batches: Token limits and reviewability favour small, coherent changes.
+- Elevate tests and observability: High-quality tests and telemetry make AI contributions safer and easier to validate.
+- Codify standards: Instruction files, prompt files, and exemplars align output across teams.
+- Close the loop: Measure outcomes and feed learning back into prompts, standards, and tooling.
+- Human-in-the-loop: Keep accountability with the team—AI accelerates, people decide.
 
-Remembering that the downside of high test coverage is that changes to functionality requires a lot of tests to change as well. In traditional software development this is often given as a higher cost of change if the test coverage is high and used to justify a mid level of test coverage. However with AI tooling the cost of change is not as high as it was before so the balance of test coverage vs cost of change is shifting. The benefits of high test coverage are more important with AI assistance to ensure that the AI generated code is functioning as expected and does not introduce regressions.
+## Skills and roles
 
-On the topic of cost of change, Documentation is more important than ever too, but now as part of the code itself. Again with the cost of code change being lower because of AI tooling, the cost of maintaining documentation is also lower. Further with better documentation the AI tooling is able to understand the codebase better and produce better results by only considering the relevant context of the problem at hand.
+- Prompt and context design: Specify intent, scope, and acceptance criteria; point agents to the right artefacts.
+- Test-first mindset: Express behaviour through tests that anchor change.
+- Architecture literacy: Balance short-term refactors with long-term design health.
+- Operational awareness: Use logs, metrics, and traces to validate impact and guide next steps.
+- Governance fluency: Apply security, licensing, and compliance policies consistently.
 
-Working on smaller code changes is also more important than ever. The limitations of LLM token windows means that large code changes are only viable by breaking it down into smaller chunks and having good documentation helps the AI tools to understand the codebase to work on those smaller chunks. This is a shift from the traditional approach of trying to do large code changes in one go to maintain flow and momentum. With AI like with many agile teams it is better to work in smaller chunks, with more clarity and certainty, then iterating quicker rather than trying to make huge leaps in one prompt.
+## Metrics and research questions
+
+Track:
+
+- Throughput: cycle time, lead time, batch size, PR size
+- Quality: change failure rate, defect escape rate, flaky test rate
+- Safety: coverage ratio on critical paths, mutation score (where used)
+- Review: time-to-review, approval latency, policy compliance
+- Operations: mean time to recovery (MTTR), incident counts linked to transformed areas
+
+Open questions:
+
+- How should attribution reflect human–AI collaboration while encouraging responsible use?
+- What review signals best predict safe merges with agentic contributions?
+- Which documentation artefacts most improve agent performance per unit of effort?
+
+## Key Takeaways
+
+- AI assistance will permeate planning, design, implementation, testing, and operations.
+- Faster change requires stronger tests, observability, and incremental delivery practices.
+- Governance and safety controls must evolve alongside capability; documentation becomes a first-class asset.
+- Teams need skills in prompt design, testing, architecture, and operations to use AI effectively.
+- Measure outcomes and iterate—treat AI-assisted development as a capability to manage, not a trend to observe.
 
 
