@@ -88,14 +88,14 @@ The static site generator:
 Drafts:
 
 - [x] Section 1
-- [ ] Section 2
-- [ ] Section 3
-- [ ] Section 4
-- [ ] Section 5
-- [ ] Section 6
-- [ ] Section 7
-- [ ] Section 8
-- [ ] Section 9
+- [x] Section 2
+- [x] Section 3
+- [x] Section 4
+- [x] Section 5
+- [x] Section 6
+- [x] Section 7
+- [x] Section 8
+- [x] Section 9
 - [ ] Check references and updates
 - [ ] Consider the competitive landscape and weave that into section 3 and 6
 - [ ] Where does Copilot break down and how to make that a positive narrative to add into the book?
