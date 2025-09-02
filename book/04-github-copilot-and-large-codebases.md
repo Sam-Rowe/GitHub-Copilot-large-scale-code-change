@@ -37,6 +37,63 @@ With instructions and prompt files in place, the prompts can be shorter, for exa
 
 Where supported, prompt files (for example, `.github/prompts/improve-test-coverage.prompt.md`) can encapsulate multi-step guidance and point to the instruction file and relevant documents.
 
+### Example: basic copilot-instructions.md
+
+```markdown
+# GitHub Copilot Instructions
+
+## Project overview
+This repository contains a microservices-based e‑commerce platform using TypeScript, Node.js, and PostgreSQL. Services communicate over HTTP and asynchronous events.
+
+## Coding standards
+- Enable TypeScript strict mode
+- Follow ESLint rules in .eslintrc.json
+- Public functions must include JSDoc
+- Prefer dependency injection for testability
+- Use consistent, structured logging with context fields (requestId, userId)
+- Document architectural decisions and trade-offs in docs/design-decisions.md
+- All documentation must be in valid Markdown, British English spelling and grammar; Mermaid diagrams are acceptable inside markdown codeblocks to illustrate complex concepts
+
+## Testing requirements
+- Minimum 80% coverage for new or changed code
+- Use Jest for unit tests; place tests alongside code as *.test.ts
+- Mock network and database calls (jest.mock, in‑memory fakes)
+- Include contract tests for public APIs where feasible
+- All documentation in markdown must pass linter tests
+
+## Architecture patterns
+- Repository pattern for data access
+- Service layer encapsulates business rules
+- Controllers/handlers deal only with transport concerns
+- Prefer Result<T, E> or exceptions consistently for error handling (see libs/result.ts)
+
+## Key documentation
+- Architecture overview: docs/architecture.md
+- API specifications: docs/api/openapi.yaml
+- Database schema: docs/database/schema.sql
+- Coding standards: docs/coding-standards.md
+- Testing guide: docs/testing.md
+
+## Conventions
+- Naming: lowerCamelCase for variables/functions; PascalCase for types/classes
+- Errors: map domain errors to HTTP codes in controllers
+- Observability: emit metrics for key operations (see docs/observability.md)
+```
+
+### Progressive prompting examples
+
+Without instructions:
+
+```text
+Generate a new endpoint for user registration in TypeScript (strict mode). Follow the repository pattern, include input validation, return appropriate HTTP status codes, add JSDoc, write unit tests with Jest (mocking the database), and use the shared Result pattern from libs/result.ts.
+```
+
+With instructions in place:
+
+```text
+Generate a user registration endpoint with email and password validation.
+```
+
 ## Chunking strategies
 
 Effective chunking balances sufficient context for the LLM with human reviewability and token limits.
